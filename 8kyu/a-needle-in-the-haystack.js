@@ -15,7 +15,7 @@
 function findNeedle(haystack) {
     // your code here
       let needle = haystack.indexOf("needle");
-      if (needle === -1) {
+      if (needle === -1) { //-1 is returned if element isn't found in the array
           return "the needle isn't in the haystack!"
       }
       return `found the needle at position ${needle}`;
