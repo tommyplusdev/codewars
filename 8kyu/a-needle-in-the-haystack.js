@@ -10,5 +10,13 @@
 
 // ["hay", "junk", "hay", "hay", "moreJunk", "needle", "randomJunk"] --> "found the needle at position 5" 
 
-
 // Note: In COBOL, it should return "found the needle at position 6"
+
+function findNeedle(haystack) {
+    // your code here
+      let needle = haystack.indexOf("needle");
+      if (needle === -1) {
+          return "the needle isn't in the haystack!"
+      }
+      return `found the needle at position ${needle}`;
+  }
