@@ -6,5 +6,15 @@
 
 
 function greet(name){
-    //your code here
+    // template literal
+    return `Hello, ${name} how are you doing today?`
+
+    // concatenation
+    return "Hello, " + name + " " + "how are you doing today?"
 }
+
+// This question is about passing an argument as an expression to be calculated or included in the string, in a template literal or as a result of concatenation.
+
+// This question is easy, so adding explanations about the problem is better for memory retention to JS syntax.
+
+// The second return for concatenation is never reached anyways, so no need to comment it out.
