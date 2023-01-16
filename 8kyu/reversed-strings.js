@@ -4,3 +4,10 @@
 
 // 'world'  =>  'dlrow'
 // 'word'   =>  'drow'
+
+function solution(str){
+    // convert string to array
+    // reverse the array
+    // convert array to string
+    return str.split('').reverse().join('');
+}
