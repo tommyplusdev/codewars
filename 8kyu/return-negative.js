@@ -12,5 +12,9 @@
 // Zero (0) is not checked for any specific sign. Negative zeros make no mathematical sense.
 
 function makeNegative(num) {
-    // your code here
+    if (Math.sign(num) === -1 || Math.sign(num) === 0) {
+      return num
+    } else {
+      return num * -1;
+    }
 }
