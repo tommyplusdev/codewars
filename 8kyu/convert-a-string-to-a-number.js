@@ -11,7 +11,21 @@
 // "1405" --> 1405
 // "-7" --> -7
 
-// const stringToNumber = function(str){
-//     // put your code here
-//     return null;
-// }
+// Using built-in Number object
+const stringToNumber = function(str){
+    let num = Number(Math.trunc(str));
+    return num;
+}
+
+// Using short-hand
+
+const stringToNumber = function(str){
+    let num = +(Math.trunc(str));
+    return num;
+}
+
+// Using int Method
+const stringToNumber = function(str){
+    let num = parseInt(str);
+    return num;
+}
