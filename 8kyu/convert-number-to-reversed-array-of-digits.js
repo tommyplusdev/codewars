@@ -7,5 +7,10 @@
 // 0 => [0]
 
 function digitize(n) {
-    //your code
+    return String(n).split('').map(num => Number(num)).reverse();
 }
+
+// split to array if the number is a string
+// map the elements back to number type
+// reverse the array and place
+// return the final result
