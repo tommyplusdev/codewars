@@ -9,5 +9,15 @@
 // Jaden-Cased: "How Can Mirrors Be Real If Our Eyes Aren't Real"
 
 String.prototype.toJadenCase = function () {
-    // your Jaden code here!
+    let strArray = this.split(' ');
+    return strArray.map(string => {
+        let firstCharacter = string[0].toUpperCase();
+        let restOfString = string.slice(1).toLowerCase();
+        return firstCharacter + restOfString;
+    }).join(" ")
 };
+
+// split the string object to an array object
+// take the first character in the new string element and uppercase it
+// add on the rest of the lowercased string.
+// convert the string back
