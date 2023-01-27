@@ -6,5 +6,9 @@
 // solution('abc', 'd') // returns false
 
 function solution(str, ending){
-    // your code here
+    return str.slice(str.length - ending.length).includes(ending);
 }
+
+// slice off the end of the string
+// check if the end includes the string
+// includes already returns true or false, no need if/else
