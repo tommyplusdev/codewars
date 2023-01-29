@@ -15,5 +15,39 @@ input =  [[18, 20], [45, 2], [61, 12], [37, 6], [21, 21], [78, 9]]
 output = ["Open", "Open", "Senior", "Open", "Open", "Senior"]
 
 function openOrSenior(data){
-    // ...
+    // data is assumed to be an array, containing arrays of member elements.
+    let categorizedData = [];
+    data.forEach (member => { // elements of data array
+        if (member[0] >= 55 && member[1] > 7) {
+          categorizedData.push("Senior");
+        } else {
+          categorizedData.push("Open")
+        }
+    })
+    return categorizedData;
 }
+
+function checkEqual(input, output) {
+    let checkedArray = openOrSenior(input);
+    for (let i = 0; i < input.length; i++) {
+        if (checkedArray[i] === output[i]) {
+            return true
+        }
+    }
+    return false;
+}
+
+checkEqual(input, output);
+//true
+  
+  // what's a senior?
+  // age >= 55
+  // handicap > 7
+  
+  // everything else is open
+  
+  // all arrays contain 2 elements, and indices 0 and 1.
+  // 0 : age
+  // 1 : handicap
+  
+  // check each array index and if they satisfy the criteria
