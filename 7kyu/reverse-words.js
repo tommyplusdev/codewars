@@ -7,5 +7,11 @@
 // "double  spaces"      ==> "elbuod  secaps"
 
 function reverseWords(str) {
-    /* your code here! */
+    let stringArray = str.split(" ");
+    // string to array
+    // work on the string elements and reverse each character in the string
+    let reversedStringCharacterArray = stringArray.map(string => {
+      return string.split("").reverse().join("");
+    }).join(" ");
+    return reversedStringCharacterArray;
 }
