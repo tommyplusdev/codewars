@@ -29,5 +29,19 @@
 // Don't forget to convert the percent parameter as a percentage in the body of your function: if the parameter percent is 2 you have to convert it to 0.02.
 
 function nbYear(p0, percent, aug, p) {
-    // your code
+  let decimalPercent = percent / 100;
+  let initialPop = p0;
+  let popPercentage = initialPop * decimalPercent;
+  for (let year = 0; initialPop < p; year++ ) {
+    popPercentage = initialPop * decimalPercent;
+    initialPop = Math.floor(initialPop + popPercentage + aug);
+  }
+  return year;
 }
+
+  // p0 is original pop
+  // percent of the original pop, so p0 * percent
+  // aug augmentation per year
+  // final pop limit p
+  // we need to loop through the population and add an aug and its percentage
+  // round DOWN the population p, as we cannot have a fraction of a person.
