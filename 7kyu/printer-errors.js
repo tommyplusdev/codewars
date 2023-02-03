@@ -18,5 +18,18 @@
 // printer_error(s) => "8/22"
 
 function printerError(s) {
-    //your code
+    let lowercaseLetters = new Set("abcdefghijklm");
+    let arrayString = s.split("");
+    let printerError = 0;
+    for (i = 0; i < arrayString.length; i++) {
+        if (!lowercaseLetters.has(arrayString[i])) {
+            printerError++;
+        }
+    }
+    return `${printerError}/${arrayString.length}`
 }
+
+// list all the letters from a to m
+// check if the letters are included in the correct version
+// if not, add it to the printer error.
+// finally, print out string containing errors / length
