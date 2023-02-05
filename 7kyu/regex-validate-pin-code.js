@@ -9,6 +9,20 @@
 // "12345"  -->  false
 // "a234"   -->  false
 
+
+// Using Sets & Guard Clause
 function validatePIN (pin) {
-    //return true or false
+  //return true or false
+  const digits = new Set([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]);
+  let validPinStatus = true;
+  if (pin.length === 4 || pin.length === 6) {
+    for (let i = 0; i < pin.length; i++) {
+      if (!digits.has(parseInt(pin[i]))) { // also includes NaN to check against the Set
+        validPinStatus = false;
+      }
+    }
+  } else {
+    validPinStatus = false
+  }
+  return validPinStatus;
 }
