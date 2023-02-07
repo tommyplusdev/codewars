@@ -10,6 +10,24 @@
 // [1, 1, 2] ==> 2
 // [17, 17, 3, 17, 17, 17, 17] ==> 3
 
+// Using a temporary object
 function stray(numbers) {
-    // your code here
+    let count = {};
+    for (i = 0; i < numbers.length; i++) {
+      count[numbers[i]] = (count[numbers[i]] || 0) + 1 
+    }
+    for (let number in count) {
+      if (count[number] === 1) {
+        return +number;
+      }
+    }
+}
+
+// Using its indexes
+function stray(numbers) {
+  for (number of numbers) {
+    if (numbers.indexOf(number) === numbers.lastIndexOf(number)) { //the stray number has no mirror image, so the index of the end and beginning are the same.
+      return number;
+    }
+  }
 }
