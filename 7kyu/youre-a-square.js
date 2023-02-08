@@ -17,5 +17,12 @@
 // 26  =>  false
 
 var isSquare = function(n){
-    return false; // fix me
-}
+    let root = Math.sqrt(n);
+    if (Number.isInteger(root)) { // check if the root is an integer
+      return true;
+    } else {
+      return false;
+    }
+  }
+  
+  console.log(isSquare(85));
