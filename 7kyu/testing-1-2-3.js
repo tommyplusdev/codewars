@@ -12,6 +12,16 @@
 // ["a", "b", "c"] --> ["1: a", "2: b", "3: c"]
 
 
+// Without array methods
 var number=function(array){
     //your awesome code here
+    let n = 0;
+    for (i = 0; i < array.length; i++) {
+      n++;
+      array[i] = `${n}: ${array[i]}`
+    }
+    return array;
 }
+
+// More concise with array methods:
+number = array => array.map((element, index) => `${index+1}: ${element}`)
