@@ -22,5 +22,26 @@
 // Note that 121 has twice the digit 1.
 
 function nbDig(n, d) {
-    // your code here
+    // square the nums
+    let squaredNums = []
+    for (let i = 0; i <= n; i++) {
+      squaredNums.push(Math.pow(i, 2));
+    }
+    // check for digits
+    let count = 0;
+    squaredNums.forEach(num => {
+      // split the number into an array of digits
+      let digits = String(num).split('');
+      // iterate over each digit
+      for (let i = 0; i < digits.length; i++) {
+        if (digits[i] == d) {
+          count++;
+        }
+      }
+    })
+    return count;
 }
+  
+  
+  // all numbers 0 to n squared
+  // how many times did the number "d" appear in the squared numbers?
