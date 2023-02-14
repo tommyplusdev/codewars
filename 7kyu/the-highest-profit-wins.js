@@ -11,5 +11,8 @@
 // All arrays or lists will always have at least one element, so you don't need to check the length. Also, your function will always get an array or a list, you don't have to check for null, undefined or similar.
 
 function minMax(arr){
-    // ...
+    let minMaxArr = [];
+    minMaxArr.push(Math.min(...arr));
+    minMaxArr.push(Math.max(...arr));
+    return minMaxArr;
 }
