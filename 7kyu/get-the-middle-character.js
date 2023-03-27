@@ -21,5 +21,10 @@
 
 function getMiddle(s)
 {
-    // your code here.
+  const characters = s.split("");
+  if (characters.length % 2 === 0) { // if even
+    return characters[characters.length / 2 - 1] + characters[characters.length / 2]
+  } else { // if odd
+    return characters[Math.floor(characters.length / 2)];
+  }
 }
