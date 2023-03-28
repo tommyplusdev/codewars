@@ -14,5 +14,16 @@
 // checkExam(["b", "c", "b", "a"], ["",  "a", "a", "c"]) → 0
 
 function checkExam(array1, array2) {
- // good luck!
+    let score = 0;
+    for (let i = 0; i < array1.length; i++) {
+      if (array1[i] === array2[i]) {
+        score += 4;
+      } else if ((array1[i] !== array2[i]) && array2[i]) {
+        score -= 1;
+      } else {
+        continue; // no points to be awarded.
+      }
+    }
+    if (score < 0) return 0;
+    return score;
 }
