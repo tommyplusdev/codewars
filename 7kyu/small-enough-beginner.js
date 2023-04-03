@@ -5,5 +5,12 @@
 // You can assume all values in the array are numbers.
 
 function smallEnough(a, limit){
+    if (Math.max(...a) <= limit ) return true;
+    return false;
+}
 
+// or 
+
+function smallEnough(a, limit){
+    return Math.max(...a) <= limit; // returns boolean
 }
