@@ -10,6 +10,17 @@
 // "4of Fo1r pe6ople g3ood th5e the2"  -->  "Fo1r the2 g3ood 4of th5e pe6ople"
 // ""  -->  ""
 
-function order(words) {
-    // ...
+function order(words){
+    if (!words) return "";
+    
+    const wordList = words.split(" "); // split into individual words
+    const sortedArray = Array.from(words.length);
+    
+    wordList.forEach(word => {
+      //split into individual characters to find integer position
+      const position = word.split("").filter(character => Number.isInteger(+character))
+      // set the found integer as our index in our sorted array
+      sortedArray[position - 1] = word;
+    })
+    return sortedArray.join(" ");
 }
