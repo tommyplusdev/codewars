@@ -15,6 +15,12 @@
 
 
 function findUniq(arr) {
-
+    const counts = arr.reduce((accum, value) => {
+      accum[value] = (accum[value] || 0) + 1; // set it to 0 if property is undefined, then add one
+      return accum; //return the new object for next iteration
+    }, {})
+    for (const count in counts) {
+      if (counts[count] === 1) return +count; // 
+    }
 }
   
