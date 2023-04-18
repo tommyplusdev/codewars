@@ -34,7 +34,7 @@ function duplicateEncode(word){
     }
     
     return result;
-  }
+}
   
   
   // store the count of the characters in an object
