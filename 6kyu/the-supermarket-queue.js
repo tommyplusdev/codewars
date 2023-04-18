@@ -36,3 +36,8 @@
 function queueTime(customers, n) {
     //TODO
 }
+
+// the elements are spread out to the number of tills available at a time
+// the lowest numbered till is the next till available to use.
+// each till has an accrued time, which represents the time it took to finish that stall.
+// return the highest time from the tills it took to clear the till, which represents the time needed to clear ALL tills.
