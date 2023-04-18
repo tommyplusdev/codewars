@@ -34,10 +34,17 @@
 // P.S. The situation in this kata can be likened to the more-computer-science-related idea of a thread pool, with relation to running multiple processes at the same time: https://en.wikipedia.org/wiki/Thread_pool
 
 function queueTime(customers, n) {
-    //TODO
+    const tills = new Array(n).fill(0); // reserve till n spots
+    
+    for (let i = 0; i < customers.length; i++) {
+      const nextTill = tills.indexOf(Math.min(...tills)); // find next till
+      tills[nextTill] += customers[i]; // add customer time to till
+    }
+    
+    return Math.max(...tills); // return max time from one sill
 }
-
-// the elements are spread out to the number of tills available at a time
-// the lowest numbered till is the next till available to use.
-// each till has an accrued time, which represents the time it took to finish that stall.
-// return the highest time from the tills it took to clear the till, which represents the time needed to clear ALL tills.
+  
+  // the elements are spread out to the number of tills available at a time
+  // the lowest numbered till is the next till available to use.
+  // each till has an accrued time, which represents the time it took to finish that stall.
+  // return the highest time from the tills it took to clear the till, which represents the time needed to clear ALL tills.
