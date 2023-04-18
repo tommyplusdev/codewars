@@ -5,5 +5,9 @@
 // Given a string, detect whether or not it is a pangram. Return True if it is, False if not. Ignore numbers and punctuation.
 
 function isPangram(string){
-    //...
-}
+    const alphabetSet = new Set('abcdefghijklmnopqrstuvwxyz');
+    let uniqueCharacters = new Set([...string.toLowerCase()].filter(character => alphabetSet.has(character)));
+    const isUnique = uniqueCharacters.size === alphabetSet.size && [...uniqueCharacters].every(character => alphabetSet.has(character))
+    
+    return isUnique;
+  }
