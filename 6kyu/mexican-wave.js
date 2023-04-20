@@ -17,6 +17,24 @@
 
 // Good luck and enjoy!
 
-function wave(str){
-    //...
+function wave(str) {
+    let wave = [];
+    str = str.toLowerCase();
+    for (let i = 0; i < str.length; i++) {
+      if (str[i] === ' ') {
+        continue; // skip whitespace characters
+      }
+      let waveWord = str.slice(0, i) + str[i].toUpperCase() + str.slice(i+1);
+      wave.push(waveWord);
+    }
+    return wave;
 }
+  
+  // if empty string, then skip that iteration.
+  
+  // format the string
+  
+  // go through the characters
+  // the character's iteration will be uppercase, and everything before and after is lowercase.
+  
+  // since every iteration produces a new lowercased instance of the string, should work
