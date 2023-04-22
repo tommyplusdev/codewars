@@ -28,3 +28,107 @@
 // ];
 
 // return ["name1", "name3"];
+
+function calculateRawScore(grades) { // third element in the array.
+    const gradeScores = {
+      "A": 30,
+      "B": 20,
+      "C": 10,
+      "D": 5
+    };
+  
+    // Calculate the sum of the grade scores for each course
+    return grades.reduce((total, grade) => {
+      const score = gradeScores[grade] || 0;
+      return total + score;
+    }, 0);
+  }
+  
+  function calculateBonusScore(grades) {
+    // Count the number of A's and B's in the grades array
+    const numABs = grades.filter(grade => grade === 'A' || grade === 'B').length;
+  
+    // If there are 5 or more courses and all courses are B or above, add 20 bonus points
+    if (grades.every(grade => grade === 'A' || grade === 'B') && numABs >= 5 ) {
+      return 20;
+    } else {
+      return 0;
+    }
+  }
+  
+  function calculateTotalScore(grades) {
+    const rawScore = calculateRawScore(grades);
+    const bonusScore = calculateBonusScore(grades);
+  
+    // Cap the total score at 200
+    const totalScore = Math.min(rawScore + bonusScore, 200);
+  
+    return totalScore;
+  }
+  
+  function checkHackedStudent(student) {
+    const [name, score, grades] = student;
+    const realScore = calculateTotalScore(grades);
+  
+    return score !== realScore;
+  }
+  
+  function findHack(students) {
+    return students.filter(checkHackedStudent).map(student => student[0]);
+  }
+  
+  /* OOP ver. */
+  
+  // class GradeScore {
+  //   constructor(grades) {
+  //     this.grades = grades;
+  //     this.gradeScores = {
+  //       "A": 30,
+  //       "B": 20,
+  //       "C": 10,
+  //       "D": 5
+  //     };
+  //   }
+  
+  //   calculateRawScore() {
+  //     return this.grades.reduce((total, grade) => {
+  //       const score = this.gradeScores[grade] || 0;
+  //       return total + score;
+  //     }, 0);
+  //   }
+  
+  //   calculateBonusScore() {
+  //     // Count the number of A's and B's in the grades array
+  //     const numABs = this.grades.filter(grade => grade === 'A' || grade === 'B').length;
+  
+  //     // If there are 5 or more courses and all courses are B or above, add 20 bonus points
+  //     if (this.grades.every(grade => grade === 'A' || grade === 'B') && numABs >= 5 ) {
+  //       return 20;
+  //     } else {
+  //       return 0;
+  //     }
+  //   }
+  
+  //   calculateTotalScore() {
+  //     const rawScore = this.calculateRawScore();
+  //     const bonusScore = this.calculateBonusScore();
+  
+  //     // Cap the total score at 200
+  //     const totalScore = Math.min(rawScore + bonusScore, 200);
+  
+  //     return totalScore;
+  //   }
+  
+  //   findHack() {
+  //     const [name, score, grades] = this.grades;
+  //     const realScore = this.calculateTotalScore();
+  
+  //     return score !== realScore;
+  //   }
+  // }
+  
+  
+  // const hackedScores = new GradeScore(array).findHack();
+  // return hackedScores;
+  
+  
