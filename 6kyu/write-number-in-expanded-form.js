@@ -11,5 +11,17 @@
 
 
 function expandedForm(num) {
-    // Your code here
+    // your code here
+    let stringNum = num.toString();
+    let expandedArray = [];
+
+    for (let i = 0; i < stringNum.length; i++) {
+        if (stringNum[i] !== "0") {
+          // fill in the rest of the number, from the index offset.
+            const expandedNum = stringNum[i].padEnd(stringNum.length - i, "0");
+            expandedArray.push(expandedNum);
+        }
+    }
+
+    return expandedArray.join(" + ");
 }
