@@ -14,5 +14,20 @@
 
 function likes(names) {
     // TODO
+    names = names || []; //pre-format
+    const people = function() {
+      if (!names || names.length === 0) return "no one"
+      else if (names.length === 1) return names[0];
+      else if (names.length === 2) return `${names[0]} and ${names[1]}`;
+      else if (names.length === 3) return `${names[0]}, ${names[1]} and ${names[2]}`
+      else return `${names[0]}, ${names[1]} and ${names.length - 2} others`
+    }
+    const likesFragment = function() {
+      if (!names || names.length === 0) return "likes this";
+      else if (names.length === 1) return "likes this";
+      else if (names.length >= 2) return "like this"
+    }
+    return `${people()} ${likesFragment()}`;
 }
-  
+
+// more abstracted in regards to the "likes" wording.
