@@ -9,5 +9,13 @@
 // Don't forget the space after the closing parentheses!
 
 function createPhoneNumber(numbers){
-    // code here...
-}  
+    if (numbers.length === 10) {
+    numbers = numbers.join(''); // convert to a working string
+    const areaCode = numbers.slice(0, 3);
+    const exchangeCode = numbers.slice(3, 6);
+    const subscriberNumber = numbers.slice(6);
+    return `(${areaCode}) ${exchangeCode}-${subscriberNumber}`
+    } else return "Not a valid phone number."
+}
+
+// slice: start = inclusive, end = exclusive
