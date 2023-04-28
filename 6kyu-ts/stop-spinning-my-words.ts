@@ -8,6 +8,24 @@
 // spinWords( "This is a test") => returns "This is a test" 
 // spinWords( "This is another test" )=> returns "This is rehtona test"
 
+interface Word {
+    value: string;
+    isReversed: boolean;
+  }
+  
 export function spinWords(words: string): string {
     // TODO Have fun :)
+    const wordsArray: Word[] = words.split(' ').map((word) => {
+      if (word.length >= 5) {
+        return { value: reverse(word), isReversed: true };
+      } else {
+        return { value: word, isReversed: false };
+      }
+    });
+    const modifiedArray = wordsArray.map((word) => word.value);
+    return modifiedArray.join(' ');
 }
+
+const reverse = (str: string): string => {
+    return str.split("").reverse().join("");
+};
