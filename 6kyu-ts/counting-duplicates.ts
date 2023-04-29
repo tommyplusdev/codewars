@@ -14,4 +14,17 @@
 
 export function duplicateCount(text: string): number {
     // ...
+    const textArray = text.split('');
+    const count: { [key: string]: number } = textArray.reduce((accumulator: { [key: string]: number }, currentValue) => {
+      // case insensitive formatting. integer string to lowercase does nothing, of course.
+      currentValue = currentValue.toLowerCase();
+      accumulator[currentValue] = (accumulator[currentValue] || 0) + 1;
+      return accumulator;
+    }, {});
+    
+    const duplicateCount = Object.values(count).filter((value) => value > 1).length;
+    
+    return duplicateCount;
 }
+
+// can be redone with sets
