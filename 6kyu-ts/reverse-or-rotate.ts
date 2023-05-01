@@ -20,3 +20,38 @@
 // revrot("563000655734469485", 4) --> "0365065073456944"
 // Example of a string rotated to the left by one position:
 // s = "123456" gives "234561".
+
+export function revRot(s: string, sz: number): string {
+    if (sz <= 0 || s.length < sz) return "";
+  
+    function sumCubes(string: string): number {
+      return string.split("").reduce((sum: number, digit: string) => {
+        const cube = parseInt(digit) ** 3;
+        return sum + cube;
+      }, 0);
+    }
+  
+    let stringArray: string[] = [];
+  
+    // slice into chunks
+    for (let i = 0; i < s.length; i += sz) {
+      const chunk = s.slice(i, i + sz); // offset the sz by the index to get the right string
+      if (chunk.length === sz) { // ensure the chunks are the right length.
+        stringArray.push(chunk);
+      }
+    }
+  
+    // transform array
+    stringArray = stringArray.map((chunk: string) => {
+      if (sumCubes(chunk) % 2 === 0) {
+        // reverse chunk
+        return chunk.split("").reverse().join("");
+      } else {
+        // rotate chunk to the left
+        const firstChar = chunk[0];
+        return chunk.slice(1) + firstChar;
+      }
+    });
+  
+    return stringArray.join("");
+}  
