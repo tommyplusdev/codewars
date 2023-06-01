@@ -38,3 +38,34 @@
 // sum of all digits to the left of the middle digit(s) -> 10
 // sum of all digits to the right of the middle digit(s) -> 20
 // 10 and 20 are not equal, so it's not balanced.
+
+export function balancedNum(number: number): string {
+    if (number.toString().length === 1 || number.toString().length === 2) return "Balanced";
+  
+    const numberArray: string[] = number.toString().split('');
+    const middleIndex: number = Math.floor(numberArray.length / 2);
+    let numberArray1: string[] = [];
+    let numberArray2: string[] = [];
+  
+    if (numberArray.length % 2 === 0) {
+      numberArray1 = numberArray.slice(0, middleIndex - 1); // exclude mid-left
+      numberArray2 = numberArray.slice(middleIndex + 1); // exclude mid-right
+    } else {
+      numberArray1 = numberArray.slice(0, middleIndex); // exclude mid
+      numberArray2 = numberArray.slice(middleIndex + 1); // exclude mid (same)
+    }
+  
+    const numberArray1Sum: number = numberArray1.reduce((acc, current) => acc + Number(current), 0);
+    const numberArray2Sum: number = numberArray2.reduce((acc, current) => acc + Number(current), 0);
+  
+    if (numberArray1Sum === numberArray2Sum) {
+      return "Balanced";
+    } else {
+      return "Not Balanced";
+    }
+  }
+  
+// split the numbers individually into digits
+// if it's odd, exclude the middle index
+// if it's even, exclude the two middle indexes
+// finally, compare the sum of each side if they are equal
